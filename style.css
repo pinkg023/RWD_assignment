@@ -13,7 +13,6 @@
 }
 
 .container {
-  border: 3px solid black;
   width: 800px;
   margin: 0 auto;
 }
@@ -27,7 +26,7 @@
 
 
 #content {
-  border: 3px solid blue;
+  /*border: 3px solid blue;*/
 }
 
 #content .container > div{
@@ -36,7 +35,7 @@
 
 
 #about, #my-work, #contact-me {
-  border: 3px solid yellow;
+  /*border: 3px solid yellow;*/
 }
 
 .menu li {
@@ -80,7 +79,6 @@ li:hover a {
 }
 
 #my-avatar {
-  border: 3px solid red;  /* 標示用，排版完記得拿掉 */
   float: left;
   padding: 10px;
 }
@@ -128,11 +126,11 @@ li:hover a {
 }
 
 #contact-me {
-  border: 1px solid green;  /* 大小同上一階層body */
+  /*border: 1px solid green;  /* 大小同上一階層body */
 }
 
 form.contact-form {
-  border: 1px solid red;  /* 標示用，完成後刪除 */
+  /*border: 1px solid red;  /* 標示用，完成後刪除 */
   width: 50%;             /*寬度展開至上一階層tag之50% */
   margin: 0 auto;
 }
@@ -183,10 +181,79 @@ hr.bar {
 }
 
 
-@media screen and (max-width: 1023px) {
+/*手機版CSS*/
 
-  /*
-    手機版的 css 都寫在這邊
-  */   
+@media screen and (min-width: 768px) {
+  .menu-button,
+  .menu-button-checkbox {
+    display: none;                      /*在電腦版時隱藏按鈕*/
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    width: auto;
+  }
+
+  .menu-button {
+    float: right;
+    font-size: 25px;
+    line-height: 40px;
+    color: white;
+    background: transparent;
+    padding: 0 15px;
+    border: 0;
+  }
+
+.menu-button-checkbox {
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 55px;
+    height: 40px;
+  }
+
+  .menu-button-checkbox:checked ~ .menu {
+    display: block;   /*當checked時選擇.menu並用block方式顯示*/
+  }
+
+
+  .menu {
+    display: none;    /*預設為不顯示*/
+    margin-top: 0;
+    padding-left: 0;
+    position: fixed;
+    right: 0;
+    top: 40px;
+    width: 150px;    
+    background: red;
+  }
+
+  .menu li {
+    border: 0;
+    border-radius: 0;
+  }
+
+  #my-avatar {
+    width: 100%; 
+  }
+
+  #my-avatar img {
+    display: block;
+    margin: 15px auto;
+  }
+
+
+
+  #my-work-gallery div.item {
+    width: 200px;
+    max-width: 80%;
+    min-width: 20%;
+  }
+
+    form.contact-form {
+    width: 80%;
+  }
 
 }
